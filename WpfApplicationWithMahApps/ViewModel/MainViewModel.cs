@@ -50,7 +50,7 @@ namespace WpfApplicationWithMahApps.ViewModel
         /// </summary>
         public MainViewModel()
         {
-        
+
             InitializeData();
             InitializeMessenger();
         }
@@ -62,17 +62,23 @@ namespace WpfApplicationWithMahApps.ViewModel
 
         private void NavigateBetweenViews(MessengerInstanceToken token)
         {
-            if (token.ViewModel == "PersonDetailsPage")
+            switch (token.ViewModel)
             {
-                var person = (Person) token.Parameters;
-                Messenger.Default.Send(person);
-                
-                CurrentViewModel = _personDetailViewModel;
+                case "PersonDetailView":
+                    var person = (Person)token.Parameters;
+                    Messenger.Default.Send(person);
+                    CurrentViewModel = _personDetailViewModel;
+                    break;
+                case "PersonListView":
+                    CurrentViewModel = _personListViewModel;
+                    break;
+                default: //TODO: Not sure.
+                    CurrentViewModel = _personListViewModel;
+                    break;
             }
-            else
-            {
-                CurrentViewModel = _personListViewModel;
-            }
+
+            
+
         }
 
         private void InitializeData()

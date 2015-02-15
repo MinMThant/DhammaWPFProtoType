@@ -1,18 +1,15 @@
-﻿using System;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using WpfApplicationWithMahApps.Model;
 using WpfApplicationWithMahApps.Repository;
-using WpfApplicationWithMahApps.Views;
 
 namespace WpfApplicationWithMahApps.ViewModel
 {
     public class PersonDetailViewModel : ViewModelBase
     {
         public RelayCommand<object> DownloadFilesCommand { get; set; }
+        public RelayCommand GoToPersonListingView { get; set; }
 
         private readonly IPersonRepository _personRepository;
         private Person _selectedPerson;
@@ -52,6 +49,18 @@ namespace WpfApplicationWithMahApps.ViewModel
                     //SelectedPerson = new Person(){ Name = DateTime.Now.ToString()};
                     
                 });
+
+            GoToPersonListingView = new RelayCommand(() =>
+            {
+                var token = new MessengerInstanceToken()
+                {
+                    ViewModel = "PersonListView",
+                    Parameters = null
+                };
+
+                this.MessengerInstance.Send<MessengerInstanceToken>(token);
+            },
+            () => true);
         }
     }
 }

@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Width="55" Height="55" VerticalAlignment="Top" Style="{DynamicResource MetroCircleButtonStyle}"
-                    Command='{Binding DownloadFilesCommand}' Background="{x:Null}" BorderBrush="{DynamicResource AccentColorBrush}">
+                    Command='{Binding GoToPersonListingView}' Background="{x:Null}" BorderBrush="{DynamicResource AccentColorBrush}">
                 <StackPanel Orientation="Vertical">
                     <Rectangle Width="20" Height="20">
                         <Rectangle.Fill>

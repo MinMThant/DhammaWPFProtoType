@@ -42,7 +42,7 @@ namespace WpfApplicationWithMahApps.ViewModel
                 {
                     var token = new MessengerInstanceToken()
                         {
-                            ViewModel = "PersonDetailsPage",
+                            ViewModel = "PersonDetailView",
                             Parameters = s
                         };  
 
