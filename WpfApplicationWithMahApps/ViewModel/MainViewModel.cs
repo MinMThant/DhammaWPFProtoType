@@ -50,7 +50,7 @@ namespace WpfApplicationWithMahApps.ViewModel
         /// </summary>
         public MainViewModel()
         {
-
+            //Test Commit
             InitializeData();
             InitializeMessenger();
         }
